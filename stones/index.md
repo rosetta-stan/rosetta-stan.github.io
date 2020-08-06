@@ -10,4 +10,4 @@ Stones are translations of the same model and data into various frameworks as we
 * A run.sh that runs the .stan program minimally using the `cmdstan` interface to Stan.
 
 # Stones
-* One parameter linear regression from simulated data
+* [One parameter linear regression from simulated data](one_param_linear_regression)
