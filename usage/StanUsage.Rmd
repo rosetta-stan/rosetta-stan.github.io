@@ -1,0 +1,114 @@
+---
+title: "Stan Usage"
+author: "Breck Baldwin"
+date: "8/8/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This document tracks Stan and Stan ecosystem usage over time. 
+
+#CRAN downloads
+
+```{r}
+library(cranlogs)
+library(ggplot2)
+library(dplyr)
+library(lubridate)
+library(httr)
+library(jsonlite)
+library(stringr)
+library(R.cache)
+
+
+packages <- c('rstan','rstanarm','shinystan','loo','bayesplot','rstantools')
+
+dls <- cran_downloads(
+  packages = packages, 
+  from ="2015-06-01",
+  to = "2020-07-31"
+)
+
+mls <- dls %>% mutate(month=floor_date(date,"monthly")) %>% 
+  group_by(month,package)  %>% #?? order matters for month/package??
+  summarize(monthly_downloads=sum(count))
+
+# mls data check
+ mls_val = (mls %>% filter(package=='rstanarm') %>%
+            filter(month=='2018-02-01'))$monthly_downloads 
+ 
+ dls_val = sum(cran_downloads(packages = c('rstanarm'), 
+               from ="2018-02-01", to = "2018-02-28")$count)
+ 
+ if (mls_val != dls_val) {
+   stop(sprintf(paste("Problems with data, expect computed monthly total",        "mls_val=%d and more simply computed monthly total dls_val=%d to be equal"),
+   mls_val, dls_val))
+   }
+
+plot1 <- ggplot() + geom_line(data=mls,
+                  aes(x=month, y=monthly_downloads, color=package))
+
+log_plot1 <- plot1 + scale_y_continuous(breaks=c(0,150,1000,10000,70000), 
+                     trans = scales::log_trans())
+
+```
+```{r message=FALSE, warning=FALSE}
+print(plot1)
+```
+
+
+```{r message=FALSE, warning=FALSE}
+print(log_plot1)
+```
+
+#Stan references at scholar.google.com. 
+
+```{r}
+library('httr')
+library('jsonlite')
+library('stringr')
+library('R.cache')
+library('tidyr')
+library('ggplot2')
+
+
+years <- 2012:2020
+extrap_to_2020 <- (365/220) # google scholar accessed Aug 8 2020,
+stan_extrapolated_2020 = 494*(365/220)  
+stan <- c(1,24,87,148,213,357,501,679,494*extrap_to_2020)
+rstan <- c(93,146,191,241,337,526,721,913,692*extrap_to_2020) #rstan query is confusable with researcher rstan@mit and messed up tokenization 'unde rstan d'
+rstanarm <- c(1,1,2,3,28,85,159,219,201*extrap_to_2020) #some time travel
+shinystan <- c(1,0,0,4,11,17,31,37,54*extrap_to_2020)
+pystan <- c(1,5,10,19,32,66,62,90,82*extrap_to_2020)
+
+
+df_wide <- data.frame(years,stan,rstan,rstanarm,shinystan,pystan)
+df_long <- gather(df_wide,package,yr_count,stan:pystan)
+
+plot2 <- ggplot() + geom_line(data=df_long,aes(x=years,y=yr_count,color=package))
+
+log_plot2 <- plot2 + scale_y_continuous(breaks=c(0,2,20,150,1000),
+                                        trans = scales::log_trans())
+
+c_stan = cumsum(stan)
+c_rstan = cumsum(rstan)
+c_rstanarm = cumsum(rstanarm)
+c_shinystan = cumsum(shinystan)
+c_pystan = cumsum(pystan)
+
+df_cumulative_wide <- data.frame(years,c_stan,c_rstan,c_rstanarm,c_shinystan,c_pystan)
+df_cumulative_long <- gather(df_cumulative_wide,package,yr_count_cumulative,c_stan:c_pystan)
+
+plot3_cumulative <- ggplot() + geom_line(data=df_cumulative_long,
+                              aes(x=years,y=yr_count_cumulative,color=package))
+
+plot3_cumulative_log <- plot3_cumulative + scale_y_continuous(breaks=c(0,10,150,3000),
+                     trans = scales::log_trans())
+```
+
+```{r message=FALSE, warning=FALSE}
+print(plot2)
+```
