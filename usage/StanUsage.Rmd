@@ -74,19 +74,64 @@ library('R.cache')
 library('tidyr')
 library('ggplot2')
 
+get_results <-function(url) {
+  key <- list(url)
+  data <- loadCache(key=key)
+  if (!is.null(data)) {
+    cat(paste("\nhitting cache for",url))
+    return(data)
+  }
+  cat(paste("\ncache miss, querying:",url,"\n"))
+  random_wait <- abs(rnorm(1,5,5))
+  cat(paste("\nWaiting",random_wait,"seconds to be nice to webserver\n"))
+  Sys.sleep(random_wait)
+  result <- GET(url)
+  saveCache(result,key=key)
+  return(result)
+}
+year_start <- 2012
+year_end <- 2020
+years <- year_start:year_end
+df <- data.frame(years)
 
-years <- 2012:2020
-extrap_to_2020 <- (365/220) # google scholar accessed Aug 8 2020,
-stan_extrapolated_2020 = 494*(365/220)  
-stan <- c(1,24,87,148,213,357,501,679,494*extrap_to_2020)
-rstan <- c(93,146,191,241,337,526,721,913,692*extrap_to_2020) #rstan query is confusable with researcher rstan@mit and messed up tokenization 'unde rstan d'
-rstanarm <- c(1,1,2,3,28,85,159,219,201*extrap_to_2020) #some time travel
-shinystan <- c(1,0,0,4,11,17,31,37,54*extrap_to_2020)
-pystan <- c(1,5,10,19,32,66,62,90,82*extrap_to_2020)
+# pkg_query <- c('stan',        'rstan', 'rstanarm', 'shinystan', 'pystan',
+#               'mc-stan.org', 'rstan', 'rstanarm', 'shinystan', 'pystan')
+
+pkg_query <- c('pymc3', 'pymc', 'rstan', 'pystan', 'pymc2', 'pymc4',
+               'pymc3', 'pymc', 'rstan', 'pystan', 'pymc2', 'pymc4')
+
+pkg_query_m <- matrix(pkg_query,ncol=2)
+
+for (i in 1:nrow(pkg_query_m) ) {
+  query = pkg_query_m[i,2]
+  package = pkg_query_m[i,1]
+  year_counts = c()
+  for (year in year_start:year_end) {
+    url <- paste("https://scholar.google.com/scholar?q=",query,
+                 "&hl=en&as_sdt=0%2C33&as_ylo=",year,
+                 "&as_yhi=",year,sep="")
+    result <- get_results(url) #  Cached get calls with waits
+    result_text <- content(result,'text')
+    count <- NA
+    if (!is.na(str_match(result_text,"did not match any articles")[1,1])) {
+      count = 0
+    } else { # '2 results (0.02 sec)', 'About 3,454 results' match first instance of
+      count_string = str_match(result_text,"(About )?([\\d,]+) result(s)?")[1,3]
+      count = as.numeric(str_remove(count_string,","))
+    }
+    year_counts <- c(year_counts,count)
+  }
+  df[package] <- year_counts
+}
+# extrapolate to full year
+day_count_current_year <- as.numeric(as.Date("2020-08-15") - as.Date('2020-01-01'))
+extrapolation = 365/day_count_current_year
+df
 
 
-df_wide <- data.frame(years,stan,rstan,rstanarm,shinystan,pystan)
-df_long <- gather(df_wide,package,yr_count,stan:pystan)
+
+df_long <- gather(df,package,yr_count,
+                  pkg_query_m[1,1]:pkg_query_m[nrow(pkg_query_m),1])
 
 plot2 <- ggplot() + geom_line(data=df_long,aes(x=years,y=yr_count,color=package))
 
