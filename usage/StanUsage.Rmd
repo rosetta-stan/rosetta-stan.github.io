@@ -91,6 +91,32 @@ get_results <-function(url) {
   saveCache(result,key=key)
   return(result)
 }
+
+query_builder <- function(and='', or='', not='', phrase='', loc='any', start='', end='') {
+  url <- ''
+  if (or == '' && not == '' && phrase=='' && loc=='any') { #simple query
+    url <- paste("https://scholar.google.com/scholar?",
+                 "q=",str_replace_all(and,'\\s+','+'),
+                 "&hl=en&as_sdt=0%2C33&as_ylo=",start,
+                 "&as_yhi=",end,sep="")
+  } else { #advanced query
+    url <- paste("https://scholar.google.com/scholar?as_q=",str_replace_all(and,'\\s+','+'),
+                 "&as_epq=",str_replace_all(phrase,'\\s+','+'),
+                 "&as_oq=",str_replace_all(or,'\\s+','+'),
+                 "&as_eq=",str_replace_all(not,'\\s+','+'),
+                 "&as_occt=",str_replace_all(loc,'\\s+','+'), #title/any for where to search
+                 "&as_sauthors=",
+                 "&as_publication=",
+                 "&as_ylo=",start,
+                 "&as_yhi=",end,
+                 "&hl=en",
+                 "&as_sdt=0%2C33", #  don't know what this element is
+                 sep="")
+  }
+  return(url)
+}
+
+
 year_start <- 2012
 year_end <- 2020
 years <- year_start:year_end
@@ -99,19 +125,23 @@ df <- data.frame(years)
 # pkg_query <- c('stan',        'rstan', 'rstanarm', 'shinystan', 'pystan',
 #               'mc-stan.org', 'rstan', 'rstanarm', 'shinystan', 'pystan')
 
-pkg_query <- c('pymc3', 'pymc', 'rstan', 'pystan', 'pymc2', 'pymc4',
-               'pymc3', 'pymc', 'rstan', 'pystan', 'pymc2', 'pymc4')
+#  pkg_query <- c('pymc3', 'pymc', 'rstan', 'pystan', 'pymc2', 'pymc4', 'pymc*',
+#               'pymc3', 'pymc', 'rstan', 'pystan', 'pymc2', 'pymc4', '',
+#               '', '', '', '' , '', '', 'pymc+pymc2+pymc3+pymc4')
 
-pkg_query_m <- matrix(pkg_query,ncol=2)
+pkg_query <- c('pymc3', 'rstan', 'pystan', 'pymc*',
+               'pymc3', 'rstan', 'pystan', '',
+               '',      '',      '',       'pymc+pymc2+pymc3+pymc4')
+
+pkg_query_m <- matrix(pkg_query,ncol=3)
 
 for (i in 1:nrow(pkg_query_m) ) {
-  query = pkg_query_m[i,2]
   package = pkg_query_m[i,1]
+  and_query = pkg_query_m[i,2]
+  or_query = pkg_query_m[i,3]
   year_counts = c()
   for (year in year_start:year_end) {
-    url <- paste("https://scholar.google.com/scholar?q=",query,
-                 "&hl=en&as_sdt=0%2C33&as_ylo=",year,
-                 "&as_yhi=",year,sep="")
+    url <- query_builder(and=and_query, or=or_query, start=year, end=year)
     result <- get_results(url) #  Cached get calls with waits
     result_text <- content(result,'text')
     count <- NA
@@ -136,16 +166,16 @@ df[nrow(df),2:ncol(df)] <- df[nrow(df),2:ncol(df)] * extrapolation_partial_year
 df_long <- gather(df,package,yr_count,
                   pkg_query_m[1,1]:pkg_query_m[nrow(pkg_query_m),1])
 
-df_long_lable <- df_long %>% 
-                 mutate(label=if_else(years == max(years), 
-                                      as.character(package),NA_character_))
+df_long_label <- df_long %>% 
+  mutate(label=if_else(years == max(years), 
+                       as.character(package),NA_character_))
 
-plot2n <- ggplot(data=df_long_lable,aes(x=years,y=yr_count,group=package, color=package)) + 
+plot2 <- ggplot(data=df_long_label,aes(x=years,y=yr_count,group=package, color=package)) + 
   geom_line() +
   geom_label_repel(aes(label = label),
-                   nudge_x = 1,
                    na.rm = TRUE) +
   scale_color_discrete(guide = FALSE)
+
 
 log_plot <- plot2 + scale_y_continuous(breaks=c(0,2,20,150,1000),
                                         trans = scales::log_trans())
