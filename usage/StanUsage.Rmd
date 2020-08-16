@@ -22,6 +22,8 @@ library(httr)
 library(jsonlite)
 library(stringr)
 library(R.cache)
+library(ggrepel)
+
 
 
 packages <- c('rstan','rstanarm','shinystan','loo','bayesplot','rstantools')
@@ -125,17 +127,27 @@ for (i in 1:nrow(pkg_query_m) ) {
 }
 # extrapolate to full year
 day_count_current_year <- as.numeric(as.Date("2020-08-15") - as.Date('2020-01-01'))
-extrapolation = 365/day_count_current_year
-df
+extrapolation_partial_year = 365/day_count_current_year
+
+df[nrow(df),2:ncol(df)] <- df[nrow(df),2:ncol(df)] * extrapolation_partial_year
 
 
 
 df_long <- gather(df,package,yr_count,
                   pkg_query_m[1,1]:pkg_query_m[nrow(pkg_query_m),1])
 
-plot2 <- ggplot() + geom_line(data=df_long,aes(x=years,y=yr_count,color=package))
+df_long_lable <- df_long %>% 
+                 mutate(label=if_else(years == max(years), 
+                                      as.character(package),NA_character_))
 
-log_plot2 <- plot2 + scale_y_continuous(breaks=c(0,2,20,150,1000),
+plot2n <- ggplot(data=df_long_lable,aes(x=years,y=yr_count,group=package, color=package)) + 
+  geom_line() +
+  geom_label_repel(aes(label = label),
+                   nudge_x = 1,
+                   na.rm = TRUE) +
+  scale_color_discrete(guide = FALSE)
+
+log_plot <- plot2 + scale_y_continuous(breaks=c(0,2,20,150,1000),
                                         trans = scales::log_trans())
 
 c_stan = cumsum(stan)
