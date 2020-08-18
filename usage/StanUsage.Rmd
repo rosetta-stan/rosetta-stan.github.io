@@ -119,21 +119,36 @@ query_builder <- function(and='', or='', not='', phrase='', loc='any', start='',
 
 year_start <- 2012
 year_end <- 2020
-years <- year_start:year_end
-df <- data.frame(years)
+date_queried <- '2020-08-15'
 
-# pkg_query <- c('stan',        'rstan', 'rstanarm', 'shinystan', 'pystan',
-#               'mc-stan.org', 'rstan', 'rstanarm', 'shinystan', 'pystan')
+# extrapolate to full year
+day_count_current_year <- as.numeric(as.Date(date_queried) - as.Date('2020-01-01'))
+extrapolation_partial_year = 365/day_count_current_year
+
+# truncate 2020 to partial year 
+end_date_in_decimal <- 2020 + day_count_current_year/365
+
+years <- c(as.double(year_start:(year_end -1)),end_date_in_decimal)
+df <- data.frame(years)
+df_cumul <- data.frame(years)
+
+pkg_query <- c('stan',        'rstan', 'rstanarm',
+               'mc-stan.org', 'rstan', 'rstanarm',
+               '','','')
 
 #  pkg_query <- c('pymc3', 'pymc', 'rstan', 'pystan', 'pymc2', 'pymc4', 'pymc*',
 #               'pymc3', 'pymc', 'rstan', 'pystan', 'pymc2', 'pymc4', '',
 #               '', '', '', '' , '', '', 'pymc+pymc2+pymc3+pymc4')
 
-pkg_query <- c('pymc3', 'rstan', 'pystan', 'pymc*',
-               'pymc3', 'rstan', 'pystan', '',
-               '',      '',      '',       'pymc+pymc2+pymc3+pymc4')
+#pkg_query <- c('pymc3', 'rstan', 'pystan', 'pymc*',
+#               'pymc3', 'rstan', 'pystan', '',
+#               '',      '',      '',       'pymc+pymc2+pymc3+pymc4')
 
 pkg_query_m <- matrix(pkg_query,ncol=3)
+
+
+
+
 
 for (i in 1:nrow(pkg_query_m) ) {
   package = pkg_query_m[i,1]
@@ -154,13 +169,10 @@ for (i in 1:nrow(pkg_query_m) ) {
     year_counts <- c(year_counts,count)
   }
   df[package] <- year_counts
+  df_cumul[package] <- cumsum(year_counts)
 }
-# extrapolate to full year
-day_count_current_year <- as.numeric(as.Date("2020-08-15") - as.Date('2020-01-01'))
-extrapolation_partial_year = 365/day_count_current_year
 
-df[nrow(df),2:ncol(df)] <- df[nrow(df),2:ncol(df)] * extrapolation_partial_year
-
+# trim the scale on the graph to be correct for Aug 8 so we don't have to interpolate but only works for cumulative
 
 
 df_long <- gather(df,package,yr_count,
@@ -177,25 +189,34 @@ plot2 <- ggplot(data=df_long_label,aes(x=years,y=yr_count,group=package, color=p
   scale_color_discrete(guide = FALSE)
 
 
-log_plot <- plot2 + scale_y_continuous(breaks=c(0,2,20,150,1000),
+log_plot2 <- plot2 + scale_y_continuous(breaks=c(0,2,20,150,1000),
                                         trans = scales::log_trans())
 
-c_stan = cumsum(stan)
-c_rstan = cumsum(rstan)
-c_rstanarm = cumsum(rstanarm)
-c_shinystan = cumsum(shinystan)
-c_pystan = cumsum(pystan)
+#  =====
+start_col <- pkg_query_m[1,1]
+end_col <- pkg_query_m[nrow(pkg_query_m),1]
+df_cumul_long <- gather(df_cumul, key=package, value=yr_count_cumul, 
+                        all_of(start_col):all_of(end_col))
 
-df_cumulative_wide <- data.frame(years,c_stan,c_rstan,c_rstanarm,c_shinystan,c_pystan)
-df_cumulative_long <- gather(df_cumulative_wide,package,yr_count_cumulative,c_stan:c_pystan)
+df_cumul_long_label <- df_cumul_long %>% 
+  mutate(label=if_else(years == max(years), 
+                       as.character(package),NA_character_))
 
-plot3_cumulative <- ggplot() + geom_line(data=df_cumulative_long,
-                              aes(x=years,y=yr_count_cumulative,color=package))
+plot_cumlative <- ggplot(data=df_cumul_long_label,aes(x=years,y=yr_count_cumul,group=package, color=package)) + 
+  geom_line() +
+  geom_label_repel(aes(label = label),
+                   na.rm = TRUE) +
+  scale_color_discrete(guide = FALSE)
 
-plot3_cumulative_log <- plot3_cumulative + scale_y_continuous(breaks=c(0,10,150,3000),
-                     trans = scales::log_trans())
+log_plot_cumulative <- plot_cumlative + scale_y_continuous(breaks=c(0,2,20,150,1000),
+                                    trans = scales::log_trans())
+
 ```
 
 ```{r message=FALSE, warning=FALSE}
 print(plot2)
+```
+
+```{r message=FALSE, warning=FALSE}
+print(plot3_cumulative)
 ```
