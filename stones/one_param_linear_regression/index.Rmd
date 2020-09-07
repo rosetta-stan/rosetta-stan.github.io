@@ -1,6 +1,33 @@
----
-layout: default
-title: Stones
---
+# Simple linear regression
+Below are programs that 
 
-# Hello World
+ 
+
+Below we generate data using R. We randomly draw values for 
+```{r echo=TRUE}
+# Drawing truth params from priors
+alpha_intercept_true <- rnorm(1, mean = 0, sd = 1)
+beta_slope_true <- rnorm(1, mean = 0, sd = 1)
+sigma_sd_true <- abs(rnorm(1, mean = 0, sd = 1)) #  sd = 'standard deviation'
+n <- 1000
+x <- runif(n, 0, 10)
+y <- rnorm(n, alpha_intercept_true + beta_slope_true * x, sigma_sd_true)
+
+
+cat(sprintf(paste("simulation parameters are: \nalpha_intercept_true=%.1f",
+              "\nbeta_slope_true=%.1f \nsigma_sd_true=%.1f \nn=%d"),
+              alpha_intercept_true, beta_slope_true, sigma_sd_true, n))
+```
+
+```{r}
+library(rstanarm)
+stan_glm(x~y)
+
+```
+
+
+
+stan_data <- list(N = n, x = x, y = y)
+
+
+
