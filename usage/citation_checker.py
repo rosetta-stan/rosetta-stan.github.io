@@ -24,7 +24,9 @@ for query in queries:
     count_match = soup.find(attrs={"id":"gs_ab_md"})
     text = soup.get_text()
     bounce_message = "Our systems have detected unusual traffic from your computer network"
-    if bounce_message in text:
+    bounce_message2 = "Please show you're not a robot"
+    if bounce_message2 in text:
         print(query)
+    
 
     
