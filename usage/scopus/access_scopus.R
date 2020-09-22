@@ -37,7 +37,7 @@ years <- year_start:year_end
 df <- data.frame(years)
 
 
-pkg_query <- c('rstan',
+pkg_query <- c('http://mc-stan.org',
                '',
                '')
 
@@ -70,14 +70,16 @@ for (i in 1:nrow(pkg_query_m) ) {
     json_txt <-rawToChar(as.raw(strtoi(result$content, 16L)))
     data <- jsonlite::fromJSON(json_txt)
     facet_count <- length(data$`search-results`$facet$category$name)
-    for (j in 1:facet_count) {
+    j <- 1
+    while (j < facet_count) {
       name <- data$`search-results`$facet$category$name[j]
       #label <- data$`search-results`$facet$category$label[j]
       hitCount <- as.numeric(data$`search-results`$facet$category$hitCount[j])
       if (!name %in% colnames(scopus.df)) {
         scopus.df[name] <- rep(0,year_end - year_start + 1)
       }
-      scopus.df[name][df$years==year,] <- hitCount
+      scopus.df[name][scopus.df$years==year,] <- hitCount
+      j <- j+ 1
     }
   }
 }
