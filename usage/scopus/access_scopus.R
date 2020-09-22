@@ -37,9 +37,9 @@ years <- year_start:year_end
 df <- data.frame(years)
 
 
-pkg_query <- c('oracle','ibm',
-               '','',
-               '','')
+pkg_query <- c('rstan',
+               '',
+               '')
 
 pkg_query_m <- matrix(pkg_query,ncol=3)
 
@@ -53,7 +53,7 @@ INSTITUTION_TOKEN <- credentials$INSTITUTION_TOKEN
 BASE_URL = 'https://api.elsevier.com/content/search/scopus'
 
 year_start <- 2011
-year_end <- 2021
+year_end <- 2019
 
 
 years <- year_start:year_end
@@ -73,7 +73,7 @@ for (i in 1:nrow(pkg_query_m) ) {
     for (j in 1:facet_count) {
       name <- data$`search-results`$facet$category$name[j]
       #label <- data$`search-results`$facet$category$label[j]
-      hitCount <- data$`search-results`$facet$category$hitCount[j]
+      hitCount <- as.numeric(data$`search-results`$facet$category$hitCount[j])
       if (!name %in% colnames(scopus.df)) {
         scopus.df[name] <- rep(0,year_end - year_start + 1)
       }
@@ -82,14 +82,14 @@ for (i in 1:nrow(pkg_query_m) ) {
   }
 }
 column_names <- colnames(scopus.df)
-df_long <- gather(scopus.df,package,yr_count,
+df_long <- gather(scopus.df,topic,yr_count,
                   column_names[2]:column_names[length(column_names)])
 
 df_long_label <- df_long %>% 
   mutate(label=if_else(years == max(years), 
-                       as.character(package),NA_character_))
+                       as.character(topic),NA_character_))
 
-plot2 <- ggplot(data=df_long_label,aes(x=years,y=yr_count,group=package, color=package)) + 
+plot2 <- ggplot(data=df_long_label,aes(x=years,y=yr_count,group=topic, color=topic)) + 
   geom_line() +
   geom_label_repel(aes(label = label),
                    na.rm = TRUE) +
