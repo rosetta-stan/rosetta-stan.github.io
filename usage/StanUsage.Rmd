@@ -24,25 +24,13 @@ library(stringr)
 library(R.cache)
 library(ggrepel)
 
-
-# 'r2jags' no results
-# 'nimble' is very low count
-packages <- c('rjags','rstan','rstanarm','shinystan','loo','bayesplot','rstantools')
+packages <- c('rstan','rstanarm','brms','tensorflow','lme4','BART','Rcpp','ggplot2')
 
 dls <- cran_downloads(
   packages = packages, 
-  from ="2015-06-01",
-  to = "2020-08-31"
+  from ="2016-01-01",
+  to = "2020-09-30"
 )
-
-# #all <- cran_downloads(
-#   packages = NULL, 
-#   from ="2015-06-01",
-#   to = "2020-07-31"
-# )
-# 
-# all$package = rep('all',nrow(all))
-# dls_all = rbind(dls,all)
 
 mls <- dls %>% mutate(month=floor_date(date,"monthly")) %>% 
   group_by(month,package)  %>% #?? order matters for month/package??
@@ -59,12 +47,9 @@ mls <- dls %>% mutate(month=floor_date(date,"monthly")) %>%
    stop(sprintf(paste("Problems with data, expect computed monthly total",        "mls_val=%d and more simply computed monthly total dls_val=%d to be equal"),
    mls_val, dls_val))
  }
- 
- 
- 
 
-plot1 <- ggplot() + geom_line(data=mls,
-                  aes(x=month, y=monthly_downloads, color=package))
+#plot <- ggplot() + geom_line(data=mls,
+#                  aes(x=month, y=monthly_downloads, color=package))
 
 label_month <- max(mls$month)
 mls_label <- mls %>% 
@@ -72,17 +57,25 @@ mls_label <- mls %>%
                        as.character(package),NA_character_))
 
 plot1 <- ggplot(data=mls_label,
-                aes(x=month, y=monthly_downloads, color=package, group=package)) +
-         geom_line() +
-         geom_label_repel(aes(label = label), na.rm = TRUE) +
+                aes(x=month, y=monthly_downloads, color=package,
+                    group=package)) +
+         geom_line()
+
+log_plot1 <- plot1 + scale_y_continuous(breaks=c(0,100,1000,10000,100000,1000000), 
+                     trans = scales::log_trans())
+
+log_plot1_display <- log_plot1 +
+  geom_label_repel(aes(label = label), na.rm = TRUE) +
          scale_color_discrete(guide = FALSE)
 
+log_plot1_2030_scale <- log_plot1 +   
+            xlim(as.Date('2016-01-01'),as.Date('2030-01-31'))
 
+log_plot1_2030_slopes_display <- log_plot1_2030_scale +
+  geom_smooth(method='lm',formula=y~x, fullrange=TRUE) +
+  geom_label_repel(aes(label = label), na.rm = TRUE) +
+         scale_color_discrete(guide = FALSE)
 
-
-
-log_plot1 <- plot1 + scale_y_continuous(breaks=c(0,150,1000,10000,70000), 
-                     trans = scales::log_trans())
 
 ```
 
@@ -111,6 +104,11 @@ library('stringr')
 library('R.cache')
 library('tidyr')
 library('ggplot2')
+library(dplyr)
+library(lubridate)
+library(ggrepel)
+library(redux)
+
 
 get_results <-function(url) {
   key <- list(url)
@@ -169,8 +167,8 @@ years <- year_start:year_end
 df <- data.frame(years)
 df_cumul <- data.frame(years)
 
-pkg_query <- c('mc-stan.org',        'rstan', 'rstanarm','pymc3',
-               'mc-stan.org', 'rstan', 'rstanarm','pymc3',
+pkg_query <- c('mc-stan.org', 'rstan bayes', 'rstanarm','pymc3',
+               'mc-stan.org', 'rstan bayes', 'rstanarm','pymc3',
                '','','')
 
 
@@ -186,9 +184,20 @@ pkg_query <- c('stan','tensorflow','pytorch','thanos',
                'mc-stan.org', '','','',
                '','','','')
 
-#pkg_query <- c('pymc3','stan','rstan', 'tensorflow','bayesian*','pytorch',
-#               '','mc-stan.org', '','','','',
-#               '','','','','mc-stan.org+rstan+rstanarm+pymc3','')
+
+pkg_query <- c('machine learning interpretability', 'black box','machine learning','deep learning','deep learning black box','"black box" ai',
+               '','','','','','',
+               '','','','','','')
+
+pkg_query <- c('machine learning','','')
+
+pkg_query <- c('rstan', 'pymc3','pystan',
+               '','','',
+               '','','')
+
+pkg_query <- c('pymc3','stan','rstan', 'tensorflow','bayesian*','pytorch',
+               '','mc-stan.org', '','','','',
+               '','','','','mc-stan.org+rstan+rstanarm+pymc3','')
 
 #pkg_query <- c('pymc3','stan','rstan', 'rstanarm', #'tensorflow','bayesian*','pytorch',
 #               '','mc-stan.org', '','','','','',
@@ -202,6 +211,11 @@ pkg_query <- c('stan','tensorflow','pytorch','thanos',
 #pkg_query <- c('pymc3', 'rstan', 'pystan', 'pymc*',
 #               'pymc3', 'rstan', 'pystan', '',
 #               '',      '',      '',       'pymc+pymc2+pymc3+pymc4')
+
+
+pkg_query <- c('pymc3','stan','rstan', 'tensorflow','bayesian*','pytorch',
+               '','mc-stan.org', '','','','',
+               '','','','','mc-stan.org+rstan+rstanarm+pymc3','')
 
 pkg_query_m <- matrix(pkg_query,ncol=3)
 
@@ -221,8 +235,9 @@ for (i in 1:nrow(pkg_query_m) ) {
     if (!is.na(str_match(result_text,"did not match any articles")[1,1])) {
       count = 0
     } else { # '2 results (0.02 sec)', 'About 3,454 results' match first instance of
+      #print(result_text)
       count_string = str_match(result_text,"(About )?([\\d,]+) result(s)?")[1,3]
-      count = as.numeric(str_remove(count_string,","))
+      count = as.numeric(str_remove_all(count_string,","))
     }
     year_counts <- c(year_counts,count)
   }
@@ -293,3 +308,12 @@ print(plot2)
 ```{r message=FALSE, warning=FALSE}
 print(plot_cumulative)
 ```
+
+
+# Scopus
+
+```{r}
+
+    
+```
+
