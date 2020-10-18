@@ -36,29 +36,15 @@ year_end <- 2020
 years <- year_start:year_end
 df <- data.frame(years)
 
-#Hamiltonian+AND+Monte+AND+Carlo+AND+stan)+OR+(stan+AND+mcmc)
+stan_eco_q <- '(brms+AND+bürkner)+OR+(gelman+AND+hoffman+AND+stan)+OR+mc-stan.org+OR+rstanarm+OR+pystan+OR+(rstan+AND+NOT+mit)'
 
-stan_eco_q <- '(brms+AND+burkner)+OR+(gelman+AND+hoffman+AND+stan)+OR+mc-stan.org+OR+rstanarm+OR+pystan+OR+(rstan+AND+NOT+mit)'
-
-#stan_eco_q <- str_replace_all(stan_eco_q, "\\(", "%28") #gets double url encoded??
-#stan_eco_q <- str_replace_all(stan_eco_q, "\\)", "%29")
 
 pkg_query <- c(stan_eco_q,
                '',
                '')
 
-
-
-pkg_query <- c('mc-stan.org',
-               '',
-               '')
 pkg_query_m <- matrix(pkg_query,ncol=3)
 
-# https://www.scopus.com/results/results.uri?sort=plf-f&src=s&sid=972b41d3f2e99383aad2d6c684d7c5d8&sot=a&sdt=a&sl=20&s=mc-stan.org+OR+rstan&origin=searchadvanced&editSaveSearch=&txGid=a992c6224b315cb8549e80f316d7c26e
-
-#pkg_query <- c('pymc3','stan','rstan', 'tensorflow','pytorch',
-#               '','mc-stan.org', '','','',
-#               '','','','','')
 
 
 
@@ -79,34 +65,23 @@ for (i in 1:nrow(pkg_query_m) ) {
   or_query = pkg_query_m[i,3]
   total_count <- 0
   for (year in year_start:year_end) {
-    year_span <- paste(year-1,"-",year,sep='')
-  #  url <- paste(BASE_URL,'?query=', package, "&date=",year_span,'&facets=subjarea(count=101)',
-                 #'&subj=AGRI',sep='') #works 64 for 2015
-  #               '&subj=NURS',sep='')
-    #url <- paste(BASE_URL,'?query=', package, "+AND+PUBYEAR+IS+",year,
-     #            #'&facets=subjarea(count=101)',
-      #           #'&subj=AGRI',sep='') #works 64 for 2015
-                #                '&subj=NURS',sep='')
-       #         sep='')
-    url_new <- paste(BASE_URL,'?query=', package, "+AND+PUBYEAR+=+",year,
-                 '&facets=subjarea(count=101)',
-                 #'&subj=AGRI',sep='') #works 64 for 2015
-                 #                '&subj=NURS',sep='')
-                 sep='')
     url <- paste(BASE_URL,'?query=', package, 
-                     "&date=",year_span,
-                 '&facets=subjarea(count=101)',
-                 #'&subj=AGRI',sep='') #works 64 for 2015
-                 #                '&subj=NURS',sep='')
+                 '+AND+FUND-ALL+(nsf+OR+(National+AND+Science+AND+Foundation))', 
+                 "+AND+PUBYEAR+=+",year,
+                # '&facets=subjarea(count=101)',
+                # '&count=200',
+                 '&view=COMPLETE', #does not workthese may be more expensive
+                 #'&view=STANDARD',#works
                  sep='')
     
+   # https://www.scopus.com/results/results.uri?sort=plf-f&src=s&sid=f3e9e722077c79173bdeee923c72b10f&sot=a&sdt=a&sl=170&s=ALL%28%28BRMS+and+brukner%29+OR+mc-stan.org+OR+rstan+OR+%28+gelman+AND+hoffman+AND+stan+%29+OR+mc-stan.org+OR+rstanarm+OR+pystan%29+AND+FUND-ALL%28NSF+OR+%22National+Science+Foundation%22%29&origin=savedSearchNewOnly&txGid=87c11913c1a1670dddaaeac57f79e848
     
-     #result <- get_results(url)
-     result <- GET(url,
-                       add_headers('X-ELS-APIKey'=API_KEY, 'X-ELS-Insttoken'=INSTITUTION_TOKEN))
+     result <- get_results(url)
+     #result <- GET(url,
+      #                 add_headers('X-ELS-APIKey'=API_KEY, 'X-ELS-Insttoken'=INSTITUTION_TOKEN))
      
      json_txt <-rawToChar(as.raw(strtoi(result$content, 16L)))
-    data <- jsonlite::fromJSON(json_txt)
+     data <- jsonlite::fromJSON(json_txt)
     
 #    data$`search-results`$entry$`prism:coverDisplayDate`
 #    data$`search-results`$`opensearch:itemsPerPage`
