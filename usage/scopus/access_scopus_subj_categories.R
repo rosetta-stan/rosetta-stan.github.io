@@ -48,10 +48,6 @@ pkg_query <- c(stan_eco_q,
                '')
 
 
-
-pkg_query <- c('mc-stan.org',
-               '',
-               '')
 pkg_query_m <- matrix(pkg_query,ncol=3)
 
 # https://www.scopus.com/results/results.uri?sort=plf-f&src=s&sid=972b41d3f2e99383aad2d6c684d7c5d8&sot=a&sdt=a&sl=20&s=mc-stan.org+OR+rstan&origin=searchadvanced&editSaveSearch=&txGid=a992c6224b315cb8549e80f316d7c26e
@@ -163,7 +159,7 @@ CSSI_categories = paste("Mathematics|Computer Science|Agricultural and Biologica
                                                  "Economics, Econometrics and Finance")
                         
 df_long_label2 <- df_long_label[str_detect(df_long_label$topic,CSSI_categories),]
-plot2CSSI <- ggplot(data=df_long_label2,aes(x=years,y=yr_count,group=topic, color=topic)) + 
+plot2CSSI <- ggplot(data=df_long_label,aes(x=years,y=yr_count,group=topic, color=topic)) + 
   geom_line() +
   geom_point() +
   geom_label_repel(aes(label = label),
