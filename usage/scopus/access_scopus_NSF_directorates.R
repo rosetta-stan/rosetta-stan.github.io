@@ -36,9 +36,9 @@ year_end <- 2020
 years <- year_start:year_end
 df <- data.frame(years)
 
-stan_eco_q <- '(brms+AND+bürkner)+OR+(gelman+AND+hoffman+AND+stan)+OR+mc-stan.org+OR+rstanarm+OR+pystan+OR+(rstan+AND+NOT+mit)'
+stan_eco_q <- '(brms+AND+burkner)+OR+(gelman+AND+hoffman+AND+stan)+OR+mc-stan.org+OR+rstanarm+OR+pystan+OR+(rstan+AND+NOT+mit)'
 
-
+stan_eco_q <- 'mc-stan.org'
 pkg_query <- c(stan_eco_q,
                '',
                '')
@@ -59,6 +59,7 @@ BASE_URL = 'https://api.elsevier.com/content/search/scopus'
 
 years <- year_start:year_end
 scopus.df <- data.frame(years)
+
 for (i in 1:nrow(pkg_query_m) ) {
   package = pkg_query_m[i,1]
   and_query = pkg_query_m[i,2]
@@ -68,50 +69,34 @@ for (i in 1:nrow(pkg_query_m) ) {
     url <- paste(BASE_URL,'?query=', package, 
                  '+AND+FUND-ALL+(nsf+OR+(National+AND+Science+AND+Foundation))', 
                  "+AND+PUBYEAR+=+",year,
-                # '&facets=subjarea(count=101)',
-                # '&count=200',
-                 '&view=COMPLETE', #does not workthese may be more expensive
-                 #'&view=STANDARD',#works
+                 '&view=COMPLETE', # works now
                  sep='')
-    
-   # https://www.scopus.com/results/results.uri?sort=plf-f&src=s&sid=f3e9e722077c79173bdeee923c72b10f&sot=a&sdt=a&sl=170&s=ALL%28%28BRMS+and+brukner%29+OR+mc-stan.org+OR+rstan+OR+%28+gelman+AND+hoffman+AND+stan+%29+OR+mc-stan.org+OR+rstanarm+OR+pystan%29+AND+FUND-ALL%28NSF+OR+%22National+Science+Foundation%22%29&origin=savedSearchNewOnly&txGid=87c11913c1a1670dddaaeac57f79e848
-    
      result <- get_results(url)
-     #result <- GET(url,
-      #                 add_headers('X-ELS-APIKey'=API_KEY, 'X-ELS-Insttoken'=INSTITUTION_TOKEN))
-     
      json_txt <-rawToChar(as.raw(strtoi(result$content, 16L)))
      data <- jsonlite::fromJSON(json_txt)
-    
-#    data$`search-results`$entry$`prism:coverDisplayDate`
-#    data$`search-results`$`opensearch:itemsPerPage`
-#    url <- paste("https://api.elsevier.com/content/abstract/scopus_id/",
-#                 84920285353,sep="")
-#    data$`search-results`$entry$`dc:title`    
-    
-#    result <- GET(url,
-#                  add_headers('X-ELS-APIKey'=API_KEY, 'X-ELS-Insttoken'=INSTITUTION_TOKEN))
-    total_count <- as.numeric(data$`search-results`$`opensearch:totalResults`)+ total_count
-    facet_count <- length(data$`search-results`$facet$category$name)
-    j <- 1
-    while (j < facet_count) {
-      name <- data$`search-results`$facet$category$name[j]
-      name <- data$`search-results`$facet$category$label[j]
-      name <- str_replace(name, " \\(all\\)", "")
-      hitCount <- as.numeric(data$`search-results`$facet$category$hitCount[j])
-      if (!name %in% colnames(scopus.df)) {
-        scopus.df[name] <- rep(0,year_end - year_start + 1)
-        print(paste("name=",name,", count=",hitCount))
+     total_count <- as.numeric(data$`search-results`$`opensearch:totalResults`)+ total_count
+    for (entry in data$`search-results`$entry) {
+      data$`search-results`$entry$`fund-no`
+      data$`search-results`$entry$`fund-sponsor` 
+      facet_count <- length(data$`search-results`$facet$category$name)
+      j <- 1
+      while (j < facet_count) {
+        name <- data$`search-results`$facet$category$name[j]
+        name <- data$`search-results`$facet$category$label[j]
+        name <- str_replace(name, " \\(all\\)", "")
+        hitCount <- as.numeric(data$`search-results`$facet$category$hitCount[j])
+        if (!name %in% colnames(scopus.df)) {
+          scopus.df[name] <- rep(0,year_end - year_start + 1)
+          print(paste("name=",name,", count=",hitCount))
+        }
+        scopus.df[name][scopus.df$years==year,] <- hitCount
+        j <- j+ 1
       }
-      scopus.df[name][scopus.df$years==year,] <- hitCount
-      j <- j+ 1
     }
   }
 }
 column_names <- colnames(scopus.df)
 column_sums <- colSums(scopus.df)
-
-#scopus.df[nrow(scopus.df) + 1,] = colSums(scopus.df)
 
 df_long <- gather(scopus.df,topic,yr_count,
                   column_names[2]:column_names[length(column_names)])

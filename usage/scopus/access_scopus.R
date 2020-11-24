@@ -12,6 +12,10 @@ library(redux)
 
 redis <- redux::hiredis()
 
+credentials <- read_json('Scopus_credentials.json')
+API_KEY <- credentials$API_KEY
+INSTITUTION_TOKEN <- credentials$INSTITUTION_TOKEN
+
 get_results <-function(url) {
   result <- redis$GET(url) # check redis first
   if (!is.null(result)) {
@@ -32,15 +36,15 @@ get_results <-function(url) {
 
 
 year_start <- 2012
-year_end <- 2020
+year_end <- 2019
 years <- year_start:year_end
 df <- data.frame(years)
 
 stan_eco_q <- '(brms+AND+burkner)+OR+(gelman+AND+hoffman+AND+stan)+OR+mc-stan.org+OR+rstanarm+OR+pystan+OR+(rstan+AND+NOT+mit)'
 
 
-pkg_query <- c('stan ecosystem*','pymc3','tensorflow','pytorch',
-               stan_eco_q,'','','')
+pkg_query <- c('Stan* or pyMC*','stan*','pymc*','tensorflow','pytorch',
+               paste(stan_eco_q,'pymc*',sep='+OR+'),stan_eco_q,'','','')
 
 pkg_query_m <- matrix(pkg_query,ncol=2)
 
@@ -65,8 +69,16 @@ for (i in 1:nrow(pkg_query_m) ) {
   for (year in year_start:year_end) {
     url <- paste(BASE_URL,'?query=', query, "+AND+PUBYEAR+=+",year,
                  sep='')
-    result <- GET(url,
-                  add_headers('X-ELS-APIKey'=API_KEY, 'X-ELS-Insttoken'=INSTITUTION_TOKEN))
+    
+    url <- paste(BASE_URL,'?query=', query, 
+                 '+AND+FUND-ALL+(nasa+OR+(National+AND+Aeronautics+AND+Space+AND+Administration))', 
+                 "+AND+PUBYEAR+=+",year,
+                 '&view=COMPLETE', # works now
+                 sep='')
+    
+    result <- get_results(url)
+    
+    #              add_headers('X-ELS-APIKey'=API_KEY, 'X-ELS-Insttoken'=INSTITUTION_TOKEN))
     
     json_txt <-rawToChar(as.raw(strtoi(result$content, 16L)))
     data <- jsonlite::fromJSON(json_txt)
@@ -92,8 +104,8 @@ plot2 <- ggplot(data=df_long_label,aes(x=years,y=yr_count,group=topic, color=top
   geom_line() +
   geom_label_repel(aes(label = label),
                    na.rm = TRUE) +
-  scale_color_discrete(guide = FALSE) +
-  geom_point()
+  scale_color_discrete(guide = FALSE) #+
+  #geom_point(position = "jitter")
 
 print(plot2)
 
