@@ -30,7 +30,7 @@ get_results <-function(url) {
 }
 
 year_start <- 2012
-year_end <- 2020
+year_end <- 2019
 years <- year_start:year_end
 df <- data.frame(years)
 
@@ -43,6 +43,8 @@ stan_eco_q <- '(brms+AND+burkner)+OR+(gelman+AND+hoffman+AND+stan)+OR+mc-stan.or
 columbia_eco_q <- '(gelman+AND+hoffman+AND+stan)+OR+mc-stan.org+OR+rstanarm+OR+pystan+OR+(rstan+AND+NOT+mit)'
 
 pymc_arviz_stan_eco_q <- paste('pymc*','arviz',stan_eco_q,sep='+OR+')
+
+deep_learning_q <- paste('tensorflow','pytorch',sep='+OR+')
 
 #stan_eco_q <- str_replace_all(stan_eco_q, "\\(", "%28") #gets double url encoded??
 #stan_eco_q <- str_replace_all(stan_eco_q, "\\)", "%29")
@@ -149,9 +151,9 @@ df_long_label <- df_long %>%
 
 
 
-NASA_categories = paste(#"Computer Science",
-                        "Engineering",
-                        "Materials Science",
+NASA_categories = paste("Computer Science",
+                        #"Engineering",
+                        #"Materials Science",
                         "Physics and Astronomy",
                         "Environmental Science",
                         "Earth and Planetary Sciences",
