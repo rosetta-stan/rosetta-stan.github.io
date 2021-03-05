@@ -1,0 +1,29 @@
+---
+title: "Experiments"
+author: "Breck Baldwin"
+date: "3/5/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(ggplot2)
+library(tidyr)
+MCMC <- c(252,281,355,366,249,49)
+Stan <- c(13,28,44,74,85,10)
+Year <- c(2016,2017,2018,2019,2020,2021)
+data <- data.frame(MCMC,Stan,Year)
+data.long <- gather(data,topic,yr_count,
+                  c('MCMC','Stan')) %>% filter(Year<2022) 
+plot1 <- ggplot(data=data.long,aes(x=Year,y=yr_count, group=topic, color=topic)) + 
+  geom_line() +
+  geom_point() + 
+  labs(x="publication year", y="UKRI funded articles mentioning topic")
+print(plot1)                
+```
+
+
+
