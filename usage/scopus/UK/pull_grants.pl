@@ -56,14 +56,14 @@ while(<>) {
 	}
 	if (length($match) == 12) { #length check needed because top pattern overgenerates
 	    ++$accum{$match};
-	    print("\t$match: $accum{$match}\n");
+	    print("\t$match\n");
 	    ++$entry_accum{$match};
 	    $signal_found = 1;	    
 	}
 	elsif(!$signal_found && $match =~ /\d/ && $match =~/[A-Z]/) {  #looking for cap letters and digits
 	    ++$accum{$match};
 	    ++$entry_accum{$match};
-	    print("\t$match: $accum{$match}\n");
+	    print("\t$match\n");
 	}
     }
 }
@@ -81,6 +81,7 @@ my %org_stats;
     
 
 print("\n", scalar(keys %accum) . " entries in accum\n");
+print("ProjectReference, Article Count, award amount\n");
 
 foreach my $key (keys %accum) { #grants are counted only once
     if (defined($db{$key})) {
