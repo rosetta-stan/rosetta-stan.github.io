@@ -1,0 +1,1113 @@
+
+Working on row: 2
+	EP/L020319/1: 1
+
+Working on row: 3
+	BB/R01292X/1: 1
+
+Working on row: 4
+
+Working on row: 5
+	MR/R024812/1: 1
+	EP/P020194/1: 1
+	MR/N013700/1: 1
+	MR/K002996/1: 1
+	MR/M003493/1: 1
+
+Working on row: 6
+	BB/R012504/1: 1
+	MR/R015600/1: 1
+	BB/M009122/1: 1
+	MR/L015080/1: 1
+	BB/M010996/1: 1
+
+Working on row: 7
+	EP/N510129/1: 1
+
+Working on row: 8
+
+Working on row: 9
+
+Working on row: 10
+
+Working on row: 11
+
+Working on row: 12
+	MR/R025223/1: 1
+	MR/P015298/1: 1
+
+Working on row: 13
+	BB/L006081/1: 1
+	NE/K006274/1: 1
+	NE/S010335/1: 1
+
+Working on row: 14
+	NE/N018125/1: 1
+
+Working on row: 15
+
+Working on row: 16
+	MR/J013188/1: 1
+	BB/R002177/1: 1
+
+Working on row: 17
+
+Working on row: 18
+
+Working on row: 19
+
+Working on row: 20
+
+Working on row: 21
+	NE/I014705/1: 1
+	NE/P001092/1: 1
+
+Working on row: 22
+	MR/L023784/2: 1
+	MR/R015600/1: 2
+
+Working on row: 23
+	NE/L002507/1: 1
+
+Working on row: 24
+
+Working on row: 25
+	EP/R035350/1: 1
+	EP/S001921/1: 1
+	EP/P017134/1: 1
+
+Working on row: 26
+	EP/P017517/1: 1
+
+Working on row: 27
+	NE/P00458X/1: 1
+
+Working on row: 28
+
+Working on row: 29
+
+Working on row: 30
+
+Working on row: 31
+
+Working on row: 32
+
+Working on row: 33
+	ES/L008955/1: 1
+
+Working on row: 34
+
+Working on row: 35
+	NE/D005590/1: 1
+	NE/F005806/1: 1
+	NE/K016431/1: 1
+	NE/N012542/1: 1
+
+Working on row: 36
+
+Working on row: 37
+	EP/R004722/1: 1
+	EP/R029407/1: 1
+	BB/N000145/1: 1
+
+Working on row: 38
+
+Working on row: 39
+
+Working on row: 40
+
+Working on row: 41
+
+Working on row: 42
+	ES/J500136/1: 1
+	ES/L01064X/1: 1
+
+Working on row: 43
+	ST/P000649/1: 1
+
+Working on row: 44
+	MR/M008517/1: 1
+
+Working on row: 45
+
+Working on row: 46
+	BB/L001330/1: 1
+	ne/England/1: 1
+
+Working on row: 47
+
+Working on row: 48
+	NE/L002590/1: 1
+
+Working on row: 49
+	NE/N001370/1: 1
+
+Working on row: 50
+	ES/J500021/1: 1
+
+Working on row: 51
+	ES/K007394/1: 1
+
+Working on row: 52
+
+Working on row: 53
+	ES/L008955/1: 2
+
+Working on row: 54
+	MR/K025643/1: 1
+	MR/M005232/1: 1
+	MR/P015298/1: 2
+
+Working on row: 55
+	MR/L003120/1: 1
+
+Working on row: 56
+	BB/L022656/1: 1
+
+Working on row: 57
+	BB/CCG1860/1: 1
+	BB/N023951/1: 1
+	BB/R012512/1: 1
+
+Working on row: 58
+	ES/L008955/1: 3
+
+Working on row: 59
+	MR/M004236/1: 1
+
+Working on row: 60
+	MR/K006924/1: 1
+
+Working on row: 61
+	MR/R015600/1: 3
+
+Working on row: 62
+	ES/K005294/1: 1
+
+Working on row: 63
+	EP/P010741/1: 1
+	EP/P01268X/1: 1
+
+Working on row: 64
+
+Working on row: 65
+	MR/L01341X/1: 1
+
+Working on row: 66
+
+Working on row: 67
+
+Working on row: 68
+	EP/R513295/1: 1
+	EP/K041096/1: 1
+	EP/R005125/1: 1
+	EP/R018472/1: 1
+
+Working on row: 69
+
+Working on row: 70
+	NE/S000224/1: 1
+	NE/N018125/1: 2
+
+Working on row: 71
+	MR/R015600/1: 4
+
+Working on row: 72
+	NE/L00139X/1: 1
+	NE/P004725/1: 1
+
+Working on row: 73
+	EP/K014463/1: 1
+
+Working on row: 74
+	NE/N010221/1: 1
+
+Working on row: 75
+
+Working on row: 76
+
+Working on row: 77
+	NE/K014455/1: 1
+	NE/S000844/1: 1
+
+Working on row: 78
+	MR/R024839/1: 1
+
+Working on row: 79
+	BB/N000560/2: 1
+	BB/N000625/1: 1
+	BB/N000668/1: 1
+
+Working on row: 80
+	NE/I028327/1: 1
+	NE/R016429/1: 1
+
+Working on row: 81
+	EP/F500394/1: 1
+	BB/J014427/1: 1
+
+Working on row: 82
+
+Working on row: 83
+	EP/N510129/1: 2
+
+Working on row: 84
+	MR/L015080/1: 2
+	BB/R012504/1: 2
+
+Working on row: 85
+
+Working on row: 86
+	BB/N023463/1: 1
+
+Working on row: 87
+
+Working on row: 88
+	NE/N007328/1: 1
+	ub/journal/1: 1
+
+Working on row: 89
+	BB/M009513/1: 1
+	MR/S037519/1: 1
+
+Working on row: 90
+	BB/R002517/1: 1
+
+Working on row: 91
+	BB/R01292X/1: 2
+
+Working on row: 92
+	NE/M021548/1: 1
+
+Working on row: 93
+
+Working on row: 94
+	NE/R000859/1: 1
+	NE/R016429/1: 2
+
+Working on row: 95
+	NE/R005133/1: 1
+	NE/R016429/1: 3
+
+Working on row: 96
+
+Working on row: 97
+
+Working on row: 98
+	NE/M000338/1: 1
+
+Working on row: 99
+
+Working on row: 100
+	NE/P002692/1: 1
+
+Working on row: 101
+	EP/G03706X/1: 1
+	BB/R000816/1: 1
+
+Working on row: 102
+	MR/P015433/1: 1
+
+Working on row: 103
+	NE/N018486/1: 1
+
+Working on row: 104
+	ES/P010962/1: 1
+
+Working on row: 105
+	NE/J024597/1: 1
+	NE/N013832/1: 1
+
+Working on row: 106
+	MR/R015600/1: 5
+
+Working on row: 107
+
+Working on row: 108
+	NE/D000394/1: 1
+
+Working on row: 109
+
+Working on row: 110
+
+Working on row: 111
+	NE/K010395/1: 1
+
+Working on row: 112
+
+Working on row: 113
+	BB/I000348/1: 1
+	BB/P003664/1: 1
+
+Working on row: 114
+	NE/M009106/1: 1
+
+Working on row: 115
+
+Working on row: 116
+
+Working on row: 117
+	ES/P000665/1: 1
+
+Working on row: 118
+
+Working on row: 119
+
+Working on row: 120
+
+Working on row: 121
+	EP/N014642/1: 1
+
+Working on row: 122
+	ES/L008955/1: 4
+
+Working on row: 123
+	MR/J012084/1: 1
+	MR/M009041/1: 1
+
+Working on row: 124
+	MR/P022081/1: 1
+	MR/P014658/1: 1
+
+Working on row: 125
+	MR/M009041/1: 2
+
+Working on row: 126
+	MR/K015346/1: 1
+
+Working on row: 127
+	NE/M004600/1: 1
+
+Working on row: 128
+	EP/P017134/1: 2
+	EP/R035350/1: 2
+	EP/S001921/1: 2
+
+Working on row: 129
+	EP/J016934/3: 1
+	EP/P020720/1: 1
+	EP/R004889/1: 1
+	EP/R018413/1: 1
+	EP/R034710/1: 1
+
+Working on row: 130
+	EP/F500351/1: 1
+
+Working on row: 131
+	MR/L010305/1: 1
+	MR/P008593/1: 1
+
+Working on row: 132
+	BB/L002604/1: 1
+	BB/M01035X/1: 1
+
+Working on row: 133
+
+Working on row: 134
+	EP/N510129/1: 3
+
+Working on row: 135
+
+Working on row: 136
+	EP/F500394/1: 2
+	BB/J014427/1: 2
+
+Working on row: 137
+
+Working on row: 138
+	ES/P009778/1: 1
+
+Working on row: 139
+	ES/N010728/1: 1
+
+Working on row: 140
+	NE/L011840/1: 1
+	NE/M020843/1: 1
+	NE/N005996/1: 1
+
+Working on row: 141
+	ES/J500136/1: 2
+
+Working on row: 142
+
+Working on row: 143
+
+Working on row: 144
+	NS/A000026/1: 1
+
+Working on row: 145
+	BB/1001187/1: 1
+	BB/N021061/1: 1
+	BB/P027970/1: 1
+
+Working on row: 146
+	ES/L01064X/1: 2
+
+Working on row: 147
+	ST/N000838/1: 1
+
+Working on row: 148
+	ST/P000681/1: 1
+
+Working on row: 149
+	ES/N012283/1: 1
+
+Working on row: 150
+
+Working on row: 151
+	MR/P02646X/1: 1
+	EP/N510129/1: 4
+
+Working on row: 152
+	NE/M006956/1: 1
+
+Working on row: 153
+	MR/L023784/1: 1
+
+Working on row: 154
+	MR/K012126/1: 1
+	MR/P022081/1: 2
+
+Working on row: 155
+	BB/M021386/1: 1
+
+Working on row: 156
+	EP/P017134/1: 3
+
+Working on row: 157
+	EP/L016044/1: 1
+	EP/F500394/1: 3
+	EP/I017909/1: 1
+	BB/P010008/1: 1
+
+Working on row: 158
+	EP/J016934/1: 1
+	EP/K005723/1: 1
+	EP/K014463/1: 2
+	EP/J016934/3: 2
+	EP/K034154/1: 1
+	EP/P020720/1: 2
+
+Working on row: 159
+	EP/R01860X/1: 1
+	EP/S00159X/1: 1
+
+Working on row: 160
+	EP/N509711/1: 1
+
+Working on row: 161
+	MR/L001411/1: 1
+	MR/P02646X/1: 2
+
+Working on row: 162
+	ES/K007394/1: 2
+
+Working on row: 163
+	ES/I010424/1: 1
+
+Working on row: 164
+	BB/L006618/1: 1
+
+Working on row: 165
+	BB/M021386/1: 2
+
+Working on row: 166
+
+Working on row: 167
+	MR/N00597X/1: 1
+	MR/R015600/1: 6
+
+Working on row: 168
+	MR/R015600/1: 7
+
+Working on row: 169
+	MR/J01107X/1: 1
+	MR/L016311/1: 1
+	EP/H046410/1: 1
+	EP/J020990/1: 1
+	EP/L016478/1: 1
+
+Working on row: 170
+	NE/L003279/1: 1
+
+Working on row: 171
+	ST/M001008/1: 1
+
+Working on row: 172
+	MR/R015600/1: 8
+
+Working on row: 173
+
+Working on row: 174
+	ES/R003386/1: 1
+
+Working on row: 175
+
+Working on row: 176
+	NE/M004546/1: 1
+
+Working on row: 177
+	NE/P001092/1: 2
+	NE/I014705/1: 2
+	NE/K016369/1: 1
+	NE/F005776/1: 1
+	NE/K016385/1: 1
+	NE/J011002/1: 1
+	NE/F01614X/1: 1
+	NE/G000816/1: 1
+	NE/K016431/1: 2
+	NE/P004512/1: 1
+
+Working on row: 178
+	ES/L008955/1: 5
+
+Working on row: 179
+	NE/L003279/1: 2
+
+Working on row: 180
+	NE/K000284/1: 1
+	NE/L002558/1: 1
+	NE/M016323/1: 1
+
+Working on row: 181
+
+Working on row: 182
+	MR/K018329/1: 1
+	MR/L021129/1: 1
+
+Working on row: 183
+	MR/L004933/1: 1
+	MR/L004933/2: 1
+
+Working on row: 184
+	EP/K014463/1: 3
+
+Working on row: 185
+	NE/F02083X/1: 1
+	NE/I021748/1: 1
+	NE/K005502/1: 1
+
+Working on row: 186
+	ES/L008955/1: 6
+
+Working on row: 187
+	BB/J004316/1: 1
+	BB/J004332/1: 1
+
+Working on row: 188
+
+Working on row: 189
+	MR/N013468/1: 1
+
+Working on row: 190
+	EP/J004197/1: 1
+
+Working on row: 191
+
+Working on row: 192
+
+Working on row: 193
+	MR/N00227X/1: 1
+	MR/R015600/1: 9
+	EP/J016934/1: 2
+
+Working on row: 194
+	MR/M013227/1: 1
+
+Working on row: 195
+	EP/H023151/1: 1
+
+Working on row: 196
+	ES/J500136/1: 3
+
+Working on row: 197
+
+Working on row: 198
+
+Working on row: 199
+
+Working on row: 200
+
+Working on row: 201
+
+Working on row: 202
+	MR/M009106/1: 1
+	MR/M023664/1: 1
+	EP/J020990/0: 1
+	EP/M020533/1: 1
+
+Working on row: 203
+	MR/M004236/1: 2
+	MR/R015600/1: 10
+
+Working on row: 204
+	ES/N007603/1: 1
+
+Working on row: 205
+
+Working on row: 206
+	EP/J016934/3: 3
+
+Working on row: 207
+	BB/1001187/1: 2
+	BB/N021061/1: 2
+
+Working on row: 208
+	MR/L023784/1: 2
+	MR/L023784/2: 2
+
+Working on row: 209
+	MR/K012126/1: 2
+
+Working on row: 210
+
+Working on row: 211
+	EP/N014162/1: 1
+	EP/N510129/1: 5
+
+Working on row: 212
+	EP/I017909/1: 2
+	BB/K017144/1: 1
+	BB/K017578/1: 1
+	BB/K018256/1: 1
+
+Working on row: 213
+	ES/L008955/1: 7
+
+Working on row: 214
+	NE/K00297X/1: 1
+
+Working on row: 215
+	NE/M004546/1: 2
+
+Working on row: 216
+
+Working on row: 217
+	ST/N000927/1: 1
+
+Working on row: 218
+	BB/M009556/1: 1
+
+Working on row: 219
+	MR/P011705/1: 1
+
+Working on row: 220
+	MR/N026063/1: 1
+
+Working on row: 221
+	MR/M014827/1: 1
+
+Working on row: 222
+	EP/J016934/1: 3
+	EP/K005723/1: 2
+
+Working on row: 223
+	ST/J001368/1: 1
+	ST/N000838/1: 2
+
+Working on row: 224
+	EP/L012138/1: 1
+	EP/M025268/1: 1
+
+Working on row: 225
+	ES/K009095/1: 1
+
+Working on row: 226
+	NE/L003279/1: 3
+	NE/L002450/1: 1
+
+Working on row: 227
+	MR/K010174/1: 1
+
+Working on row: 228
+	MR/K010174/1: 2
+
+Working on row: 229
+	ST/F007159/1: 1
+	ST/J001465/1: 1
+	ST/L00061X/1: 1
+	ST/M000966/1: 1
+
+Working on row: 230
+	NE/M016323/1: 2
+
+Working on row: 231
+	EP/K021672/1: 1
+	EP/K021672/2: 1
+	EP/N014588/1: 1
+
+Working on row: 232
+
+Working on row: 233
+	MR/L010445/1: 1
+	MR/L011093/1: 1
+	MR/L011093/2: 1
+	MR/L011093/3: 1
+	BB/L002655/1: 1
+	BB/L015048/1: 1
+
+Working on row: 234
+	MR/N014448/1: 1
+
+Working on row: 235
+	EP/F500386/1: 1
+	BB/F529254/1: 1
+
+Working on row: 236
+	EP/F500385/1: 1
+	BB/F529254/1: 2
+
+Working on row: 237
+	EP/N007387/1: 1
+
+Working on row: 238
+	EP/K009850/1: 1
+	EP/L016710/1: 1
+	EP/N000188/1: 1
+	EP/K009362/1: 1
+
+Working on row: 239
+
+Working on row: 240
+	NE/K00297X/1: 2
+
+Working on row: 241
+	MR/P022081/1: 3
+
+Working on row: 242
+	NE/L006561/1: 1
+
+Working on row: 243
+	EP/J016934/1: 4
+	ST/L000652/1: 1
+
+Working on row: 244
+	EP/K005251/1: 1
+	EP/K005251/2: 1
+
+Working on row: 245
+	ES/I030093/1: 1
+
+Working on row: 246
+	EP/K033425/1: 1
+
+Working on row: 247
+
+Working on row: 248
+	EP/N007387/1: 2
+
+Working on row: 249
+
+Working on row: 250
+	MR/K010174/1: 3
+
+Working on row: 251
+
+Working on row: 252
+
+Working on row: 253
+	NE/I003673/1: 1
+
+Working on row: 254
+
+Working on row: 255
+	EP/I017909/1: 3
+
+Working on row: 256
+	EP/L000776/1: 1
+	EP/M026957/1: 1
+
+Working on row: 257
+	MR/K006665/1: 1
+
+Working on row: 258
+
+Working on row: 259
+	EP/D063485/1: 1
+	EP/K014463/1: 4
+
+Working on row: 260
+	EP/I036575/1: 1
+
+Working on row: 261
+	ST/L000709/1: 1
+	ST/M001970/1: 1
+	ST/M003515/1: 1
+
+Working on row: 262
+	EP/K015664/1: 1
+	EP/K015664/2: 1
+
+Working on row: 263
+	NE/G00725X/1: 1
+
+Working on row: 264
+
+Working on row: 265
+	EP/K005723/1: 3
+
+Working on row: 266
+
+245 entries in accum
+NE/L00139X/1: 1 £464,822
+ES/L01064X/1: 2 £239,925
+BB/M009122/1: 1 £7,901,424
+MR/P015298/1: 2 £313,484
+NE/K016431/1: 2 £1,167,089
+BB/1001187/1: 2 ??
+EP/R035350/1: 2 £169,368
+ne/England/1: 1 ??
+EP/J016934/3: 3 £235,666
+EP/L000776/1: 1 £97,101
+EP/J016934/1: 4 £663,346
+EP/R005125/1: 1 £271,306
+MR/P015433/1: 1 £333,864
+MR/R025223/1: 1 £737,951
+EP/R018472/1: 1 £2,847,110
+EP/N000188/1: 1 £98,893
+MR/M009041/1: 2 £14,621,436
+ST/M000966/1: 1 £1,314,851
+NE/M006956/1: 1 £172,035
+MR/L010305/1: 1 £1,866,704
+BB/J004316/1: 1 ??
+BB/N000668/1: 1 £383,666
+ST/M001970/1: 1 £37,627
+EP/K034154/1: 1 £2,048,925
+MR/L01341X/1: 1 £1,092,470
+EP/R018413/1: 1 £563,777
+EP/R01860X/1: 1 £2,656,400
+MR/P008593/1: 1 £717,566
+EP/J020990/0: 1 ??
+EP/P017134/1: 3 £280,667
+NE/K00297X/1: 2 £383,066
+EP/K014463/1: 4 £2,369,502
+MR/M009106/1: 1 £1,217,069
+BB/N000560/2: 1 £21,229
+BB/R000816/1: 1 £297,281
+ES/K009095/1: 1 £253,696
+MR/J01107X/1: 1 £1,836,570
+ES/J500021/1: 1 £12,927,461
+EP/L012138/1: 1 £1,263,745
+EP/K033425/1: 1 £322,519
+NE/N007328/1: 1 £292,229
+ST/J001368/1: 1 £370,700
+EP/N014642/1: 1 £1,998,908
+EP/K041096/1: 1 £279,768
+NE/L002558/1: 1 £8,409,495
+MR/N014448/1: 1 £460,831
+MR/L004933/2: 1 £2,618,711
+MR/L016311/1: 1 £8,875,955
+BB/N021061/1: 2 £1,010,157
+ES/N012283/1: 1 £486,296
+BB/L015048/1: 1 £498,946
+EP/P020194/1: 1 £4,000,000
+NE/L003279/1: 3 £1,422,680
+MR/K002996/1: 1 £505,392
+NE/K014455/1: 1 £318,177
+EP/L016478/1: 1 £5,782,531
+BB/J014427/1: 2 £2,831,930
+EP/P01268X/1: 1 £765,473
+NE/N012542/1: 1 £485,370
+EP/K005723/1: 3 £237,546
+NE/N010221/1: 1 £403,628
+BB/M021386/1: 2 £405,201
+EP/I017909/1: 3 £3,989,307
+BB/R012512/1: 1 ??
+EP/I036575/1: 1 £1,158,511
+EP/P020720/1: 2 £2,964,065
+EP/L016044/1: 1 £3,578,912
+BB/R002177/1: 1 £844,819
+ST/M003515/1: 1 £98,989
+BB/M009556/1: 1 £527,179
+NE/L002507/1: 1 £6,927,773
+BB/CCG1860/1: 1 ??
+EP/R029407/1: 1 £321,432
+NE/M004546/1: 2 £605,400
+BB/L001330/1: 1 £4,449,822
+ES/J500136/1: 3 £27,538,201
+MR/L011093/2: 1 £276,589
+EP/R004722/1: 1 £379,690
+NE/P004725/1: 1 £258,484
+NE/K005502/1: 1 £529,831
+EP/M025268/1: 1 £4,557,635
+ES/P009778/1: 1 £0
+BB/M01035X/1: 1 £379,287
+BB/K018256/1: 1 £373,693
+EP/M020533/1: 1 £1,472,259
+EP/K015664/1: 1 £674,580
+BB/L006081/1: 1 £611,111
+NE/R000859/1: 1 £641,267
+BB/K017144/1: 1 £49,774
+BB/N000625/1: 1 £391,020
+NE/P00458X/1: 1 £238,702
+MR/S037519/1: 1 £5,943,611
+ST/L000652/1: 1 £1,355,892
+MR/M023664/1: 1 £2,613,582
+NE/R005133/1: 1 £32,110
+NE/N001370/1: 1 £687,757
+NE/P001092/1: 2 £650,394
+NE/N005996/1: 1 £91,735
+ES/P010962/1: 1 £5,978,505
+BB/N023951/1: 1 £181,049
+EP/K005251/2: 1 £248,630
+NE/F005806/1: 1 £1,251,597
+MR/R024839/1: 1 £290,658
+NE/P002692/1: 1 £478,510
+EP/P010741/1: 1 £460,590
+NE/G000816/1: 1 £75,577
+NE/K010395/1: 1 £1,732,065
+ST/P000681/1: 1 £1,763,681
+EP/M026957/1: 1 £565,346
+ST/F007159/1: 1 £660,225
+NE/I014705/1: 2 £713,086
+BB/L002604/1: 1 £476,159
+NE/P004512/1: 1 £238,520
+MR/J013188/1: 1 £470,870
+NE/K016369/1: 1 £443,040
+NE/I021748/1: 1 £282,797
+EP/D063485/1: 1 £4,087,064
+NE/M020843/1: 1 £1,815,576
+EP/K021672/2: 1 £795,226
+NE/J024597/1: 1 £453,010
+NE/D000394/1: 1 ??
+NE/K000284/1: 1 £286,071
+BB/P027970/1: 1 £7,035,021
+NS/A000026/1: 1 £4,980,966
+BB/M010996/1: 1 £7,407,585
+EP/N007387/1: 2 £226,293
+NE/F005776/1: 1 £252,876
+MR/N00227X/1: 1 £549,297
+NE/N018486/1: 1 £1,118,205
+ES/I030093/1: 1 ??
+BB/R012504/1: 2 ??
+EP/N014588/1: 1 £1,923,014
+ST/N000838/1: 2 £2,070,977
+EP/P017517/1: 1 £570,919
+BB/P010008/1: 1 £565,914
+EP/J004197/1: 1 £1,400,234
+MR/K018329/1: 1 £377,129
+BB/N023463/1: 1 £1,002,046
+ES/K005294/1: 1 £2,738,920
+MR/L023784/2: 2 £15,256,623
+MR/M014827/1: 1 £388,233
+ES/P000665/1: 1 £14,095,640
+NE/F01614X/1: 1 £246,247
+NE/F02083X/1: 1 £317,587
+EP/S00159X/1: 1 £523,575
+ST/P000649/1: 1 £3,493,919
+MR/L011093/1: 1 £331,009
+NE/J011002/1: 1 £538,239
+ES/N007603/1: 1 £130,967
+MR/R015600/1: 10 £4,506,171
+EP/L016710/1: 1 £4,279,117
+MR/N00597X/1: 1 £1,027,818
+MR/N026063/1: 1 £1,467,740
+MR/P014658/1: 1 £327,366
+MR/P022081/1: 3 £490,799
+ES/R003386/1: 1 £572,929
+MR/M005232/1: 1 £323,623
+MR/L003120/1: 1 £2,017,846
+BB/L022656/1: 1 £457,071
+MR/L023784/1: 2 £13,148,876
+ES/L008955/1: 7 £7,570,698
+NE/N013832/1: 1 £271,027
+NE/I028327/1: 1 £450,183
+EP/N510129/1: 5 £42,000,000
+EP/R513295/1: 1 £13,654,493
+MR/J012084/1: 1 £325,435
+EP/N509711/1: 1 £13,985,559
+MR/P02646X/1: 2 £325,589
+EP/F500394/1: 3 £5,470,113
+MR/L001411/1: 1 £345,267
+ST/M001008/1: 1 £2,164,853
+MR/K010174/1: 3 £2,325,409
+NE/S000224/1: 1 £1,049,803
+BB/F529254/1: 2 £458,080
+EP/K005251/1: 1 £599,281
+ES/K007394/1: 2 £5,388,048
+BB/R01292X/1: 2 £302,069
+BB/P003664/1: 1 £294,752
+EP/F500351/1: 1 £4,691,456
+NE/M016323/1: 2 £533,956
+NE/I003673/1: 1 £224,479
+BB/N000145/1: 1 £569,187
+NE/G00725X/1: 1 £599,577
+MR/L021129/1: 1 £647,732
+ST/L000709/1: 1 £1,674,428
+EP/J020990/1: 1 £592,910
+EP/K009850/1: 1 £158,970
+NE/S000844/1: 1 £394,290
+NE/L006561/1: 1 £398,042
+MR/M003493/1: 1 £1,245,034
+BB/I000348/1: 1 £405,368
+BB/L002655/1: 1 £360,078
+NE/R016429/1: 3 £29,316,000
+EP/H023151/1: 1 £4,515,764
+MR/L011093/3: 1 £120,913
+ST/N000927/1: 1 £2,138,609
+ES/I010424/1: 1 £265,477
+MR/P011705/1: 1 £2,089,805
+BB/M009513/1: 1 £16,015,170
+EP/K021672/1: 1 £836,308
+MR/M004236/1: 2 £2,125,277
+NE/K006274/1: 1 £595,899
+MR/N013700/1: 1 ??
+EP/L020319/1: 1 £341,824
+ST/L00061X/1: 1 £405,990
+NE/L002450/1: 1 ??
+MR/M008517/1: 1 £1,483,513
+NE/L011840/1: 1 £519,244
+MR/K006665/1: 1 £4,823,173
+NE/M021548/1: 1 £55,437
+BB/K017578/1: 1 £265,682
+EP/N014162/1: 1 £974,161
+MR/L015080/1: 2 £7,684,163
+BB/R002517/1: 1 £443,784
+EP/R004889/1: 1 £2,160,697
+MR/N013468/1: 1 ??
+ub/journal/1: 1 ??
+BB/L006618/1: 1 £346,336
+EP/K015664/2: 1 £518,914
+ES/N010728/1: 1 £1,154,366
+NE/L002590/1: 1 £5,521,146
+NE/D005590/1: 1 £536,705
+EP/H046410/1: 1 £6,053,493
+MR/K012126/1: 2 £3,913,896
+NE/S010335/1: 1 £643,261
+EP/F500385/1: 1 ??
+MR/K006924/1: 1 £2,044,180
+MR/K025643/1: 1 £1,921,688
+EP/F500386/1: 1 £4,782,908
+ST/J001465/1: 1 £804,198
+NE/M004600/1: 1 £293,217
+NE/K016385/1: 1 £306,016
+MR/L004933/1: 1 £3,381,061
+MR/M013227/1: 1 £345,541
+MR/R024812/1: 1 £290,658
+NE/M000338/1: 1 £278,806
+EP/S001921/1: 2 £633,926
+NE/M009106/1: 1 ??
+EP/K009362/1: 1 £200,069
+MR/K015346/1: 1 £5,089,889
+MR/L010445/1: 1 £252,450
+NE/N018125/1: 2 £5,671,277
+BB/J004332/1: 1 ??
+EP/G03706X/1: 1 £6,204,768
+EP/R034710/1: 1 £2,950,485
+245 possible grants were found with UKRI funding acknowledgement in 266 research papers that mentioned a Stan ecosystem component.
+
+The query is: FUND-SPONSOR ( "Arts and Humanities Research Council" )  OR  FUND-SPONSOR ( "Economic and Social Research Council" )  OR  FUND-SPONSOR ( "Engineering and Physical Sciences Research Council" )  OR  FUND-SPONSOR ( "Natural Environment Research Council" )  OR  FUND-SPONSOR ( "Medical Research Council" )  OR  FUND-SPONSOR ( "Research England" )  OR  FUND-SPONSOR ( "Science and Technology Facilities Council" )  OR  FUND-SPONSOR ( "UK Research and Innovation" )  OR  FUND-SPONSOR ( "Biotechnology and Biological Sciences Research Council" )  OR  FUND-SPONSOR ( "Engineering and Physical Sciences Research Council" )  OR  FUND-SPONSOR ( "Research Councils UK" )  AND  ALL ( ( brms  AND  bürkner )  OR  ( gelman  AND  hoffman  AND  stan )  OR  mc-stan.org  OR  rstanarm  OR  pystan  OR  ( rstan  AND NOT  mit ) )
+
+83 research papers did not have recoverable grant information despite being classified as having recieved UKRI funding as determined by scopus.com
+Of the possible grants, 229 had recoverable project/grant ids.
+Total expenditures for 229 grants = £540,563,901 
+total < 1.5 million for 156 grants = £78,747,859
+total < 2 million for 165 grants = £95,280,493
+total < 2.5 million for 176 grants = £118,836,573
+Institute 	count funding_total for grants < £2.5 million
+ESRC		8	£3,103,656
+MRC		38	£33,309,369
+NERC		50	£26,237,721
+STFC		13	£14,861,020
+BBSRC		27	£11,920,938
+EPSRC		40	£29,403,869
